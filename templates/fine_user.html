@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Calculate Fine for User</h2>
+<form method="POST" action="{{ url_for('fine_user') }}">
+    <div class="form-group">
+        <label for="username">Select User:</label>
+        <select name="username" class="form-control" required>
+            {% for user in users %}
+                <option value="{{ user.username }}">{{ user.username }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Calculate Fine</button>
+</form>
+
+{% if fine_total is not none %}
+    <h3>Total Fine for {{ username }}: ${{ fine_total }}</h3>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Book Title</th>
+                <th>Days Overdue</th>
+                <th>Fine Amount</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for detail in fine_details %}
+                <tr>
+                    <td>{{ detail.title }}</td>
+                    <td>{{ detail.days_overdue }}</td>
+                    <td>${{ detail.fine_amount }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endif %}
+{% endblock %}

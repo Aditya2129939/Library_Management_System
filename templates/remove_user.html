@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Remove User</h2>
+<form method="POST" action="{{ url_for('remove_user') }}">
+    <div class="form-group">
+        <label for="username">Select User to Remove:</label>
+        <select name="username" class="form-control" required>
+            {% for user in users %}
+                <option value="{{ user.username }}">{{ user.username }} ({{ user.role }})</option>
+            {% endfor %}
+        </select>
+    </div>
+    <button type="submit" class="btn btn-danger">Remove User</button>
+</form>
+{% endblock %}

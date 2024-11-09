@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login - Library Management</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="navbar">
+        <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo" style="height: 40px;">
+        <h1>Library Management</h1>
+    </div>
+    <div class="container">
+        <form action="/" method="POST">
+            <h2>Login</h2>
+            <label for="username">Username</label>
+            <input type="text" name="username" id="username" required>
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" required>
+            <button type="submit">Login</button>
+        </form>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <ul>
+                    {% for category, message in messages %}
+                        <li class="{{ category }}">{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+    </div>
+</body>
+</html>

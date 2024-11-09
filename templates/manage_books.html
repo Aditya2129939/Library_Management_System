@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Manage Books - Library Management</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="navbar">
+        <h1>Manage Books</h1>
+        <a href="{{ url_for('main') }}">Back to Main</a>
+    </div>
+    <div class="container">
+        <h2>Add New Book</h2>
+        <form action="{{ url_for('manage_books') }}" method="POST">
+            <input type="text" name="title" placeholder="Book Title" required>
+            <input type="text" name="author" placeholder="Author" required>
+            <input type="text" name="isbn" placeholder="ISBN" required>
+            <button type="submit">Add Book</button>
+        </form>
+        <h3>Current Book List</h3>
+        <table>
+            <tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th>ISBN</th>
+            </tr>
+            {% for book in books %}
+                <tr>
+                    <td>{{ book[0] }}</td>
+                    <td>{{ book[1] }}</td>
+                    <td>{{ book[2] }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Main - Library Management</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="navbar">
+        <h1>Library Dashboard</h1>
+        <div>
+            <a href="{{ url_for('main') }}">Home</a>
+            {% if role == 'admin' %}
+                <a href="{{ url_for('manage_books') }}">Manage Books</a>
+                <a href="{{ url_for('manage_users') }}">Manage Users</a>
+            {% endif %}
+            <a href="{{ url_for('logout') }}" class="button">Logout</a>
+        </div>
+    </div>
+    <div class="container">
+        <h2>Welcome, {{ session['username'] }}!</h2>
+        <div class="card">
+            <h3>Recently Issued Books</h3>
+            <table>
+                <tr>
+                    <th>Title</th>
+                    <th>Issued To</th>
+                    <th>Return Date</th>
+                </tr>
+                <!-- Sample data; ideally, you’d fetch this from your database -->
+                <tr>
+                    <td>The Great Gatsby</td>
+                    <td>John Doe</td>
+                    <td>2024-11-15</td>
+                </tr>
+                <tr>
+                    <td>1984</td>
+                    <td>Jane Doe</td>
+                    <td>2024-11-20</td>
+                </tr>
+            </table>
+        </div>
+        <div class="card">
+            <h3>Your Borrowed Books</h3>
+            <table>
+                <tr>
+                    <th>Title</th>
+                    <th>Issue Date</th>
+                    <th>Return Date</th>
+                </tr>
+                <!-- Example borrowed books -->
+                <tr>
+                    <td>To Kill a Mockingbird</td>
+                    <td>2024-10-01</td>
+                    <td>2024-11-01</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,84 @@
+/* Global styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.navbar {
+    width: 100%;
+    background-color: #6c63ff;
+    color: white;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    margin-right: 1rem;
+}
+
+.container {
+    width: 100%;
+    max-width: 800px;
+    margin-top: 2rem;
+    background: #ffffff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+}
+
+.card {
+    background-color: #e1e4fa;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+h2 {
+    color: #333;
+}
+
+button, a.button {
+    background-color: #6c63ff;
+    color: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    text-decoration: none;
+    text-align: center;
+}
+
+button:hover, a.button:hover {
+    background-color: #5a54e3;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+th {
+    background-color: #6c63ff;
+    color: white;
+}

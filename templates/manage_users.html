@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Manage Users</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="manage-container">
+        <h2>Manage Users</h2>
+        <form action="{{ url_for('manage_users') }}" method="POST">
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <select name="role">
+                <option value="user">User</option>
+                <option value="admin">Admin</option>
+            </select>
+            <button type="submit">Add User</button>
+        </form>
+        <a href="{{ url_for('main') }}">Back to Main</a>
+    </div>
+</body>
+</html>
